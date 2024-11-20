@@ -3,29 +3,6 @@ PEMS Web Custom Code
 This repository hosts custom CSS and HTML files used for styling and content on the Precision Electric Motors Sales (PEMS) backend. By hosting these files on GitHub, we ensure a centralized and easily maintainable structure, allowing for seamless updates and integration in our web backend.
 
 GitHub Pages is enabled for this repository, so all files can be accessed directly via URLs, making them easy to link and use in your backend application.
-Repository Structure
-
-The repository is organized as follows:
-
-Pems-Web-Custom-Code/
-├── index.html                 # Main HTML file with links to previews and raw CSS files
-├── Header/
-│   ├── styles.css             # CSS file for custom header styles
-│   └── preview-header.html    # HTML file to preview the header styles
-└── Footer/
-    ├── footer-styles.css      # CSS file for custom footer styles
-    └── preview-footer.html    # HTML file to preview the footer styles
-    └── footer.html            # HTML file containing the footer structure
-
-Files Overview
-
-    index.html: The main entry point for the repository, providing links to view previews and raw code for both the header and footer styles.
-    Header/styles.css: Contains custom CSS styling for the header section used on PEMS backend pages.
-    Header/preview-header.html: A preview page for testing and viewing the header styles in a sample layout.
-    Footer/footer-styles.css: Contains custom CSS styling for the footer section used on PEMS backend pages.
-    Footer/preview-footer.html: A preview page for testing and viewing the footer styles in a sample layout.
-    Footer/footer.html: Contains the HTML structure for the footer, which can be embedded directly in the backend.
-
 Usage
 1. Accessing the Previews
 
@@ -50,56 +27,40 @@ Add the following link to your backend HTML to include the custom footer styling
 
 <link rel="stylesheet" href="https://pems-motors.github.io/Pems-Web-Custom-Code/Footer/footer-styles.css">
 
-3. Embedding the Footer HTML
+3. Adding Code to the Backend Custom Header Section
 
-To directly include the footer HTML structure from GitHub in your backend, you can use JavaScript to fetch and embed it.
-Footer HTML Code (footer.html)
+To use the custom header styles in your backend’s custom header section, include the following code. This uses @import within a <style> tag to load the CSS from GitHub:
 
-The following HTML is stored in footer.html within this repository:
+<style>
+  /* Import the header styles from GitHub */
+  @import url("https://pems-motors.github.io/Pems-Web-Custom-Code/Header/styles.css");
+</style>
 
+This approach allows the header CSS to load directly from GitHub Pages, automatically updating with any changes made to styles.css.
+4. Adding Code to the Backend Custom Footer Section
 
-<footer>
-    <div>
-        <a href="http://www.pemsmotors.com/">
-            Precision Electric Motors Sales
-            <br>© 2024            
-        </a>
-        <a href="https://www.pemsmotors.com/digital-resources">
-            Digital
-            <br>Resources
-        </a>
-        <a href="http://www.pemsmotors.com/contact/">
-            Contact
-            <br>Us
-        </a>
-        <a href="http://www.pemsmotors.com/locations/">
-            Locations
-        </a>
-        <a href="http://www.pemsmotors.com/careers">
-            Careers
-        </a>
-        <a href="http://www.websitepipeline.com/">
-            Ecommerce & ERP Integration
-            <br>by Website Pipeline
-        </a>
-    </div>
-</footer>
+To add both the styling and HTML for the footer in your backend’s custom footer section, include the following:
 
-Embedding Footer HTML in Your Backend
+<!-- Load the footer styles from GitHub -->
+<style>
+  @import url("https://pems-motors.github.io/Pems-Web-Custom-Code/Footer/footer-styles.css");
+</style>
 
-    Create a div in your backend HTML where the footer will be inserted:
+<!-- Fetch and insert the footer HTML content from GitHub -->
+<script>
+  fetch('https://pems-motors.github.io/Pems-Web-Custom-Code/Footer/footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer-container').innerHTML = data)
+    .catch(error => console.error('Error loading footer:', error));
+</script>
+
+Additionally, ensure there is a placeholder div on your backend page where the footer HTML will be injected:
 
 <div id="footer-container"></div>
 
-Add JavaScript to fetch the HTML from GitHub and insert it into the div:
+Embedding the Footer HTML Directly
 
-    <script>
-      fetch('https://pems-motors.github.io/Pems-Web-Custom-Code/Footer/footer.html')
-        .then(response => response.text())
-        .then(data => document.getElementById('footer-container').innerHTML = data);
-    </script>
-
-This JavaScript code fetches footer.html and injects it into the footer-container div. This approach keeps your backend code clean and allows for easy updates to the footer content by simply updating the HTML file in this repository.
+To directly include the footer HTML structure from GitHub in your backend without modifying the main page, this JavaScript fetches the HTML from GitHub Pages and injects it into the footer-container div. Any changes to footer.html will automatically update in the backend.
 Local Development and Testing
 
 To make local changes and test them before pushing to GitHub, follow these steps:
