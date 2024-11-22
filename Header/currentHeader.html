@@ -1,0 +1,145 @@
+<style>
+
+    .prod-card {
+      /**
+       * card layout
+       */
+      vertical-align : top;
+      width : 100%;
+      box-sizing : border-box;
+    
+      box-shadow       : 0.05em 0.15em 0.05em 0.15em rgba(0, 0, 0, 0.25);
+      border-radius    : 0.5em;
+      background-color : rgba(255,255,255,1.0);
+      z-index          : 1;
+      padding          : 0.5em;
+      margin-bottom    : 1em;
+     
+      &:hover {
+        /* make the transformation take about 250ms */
+        transform  : scale(1.05);
+        transition : background-color 0.25s, color 0.25s, transform 0.25s;
+        cursor     : pointer;
+        z-index    : 2;
+      }
+    
+      * {
+        padding        : 0;
+        margin         : 0;
+        box-sizing     : border-box;
+      }
+      
+      /**
+       * thumbnail image
+       */
+      .prod-thumb {
+        .prod-thumb-img {
+          img {
+            width: 6em;
+            height: 6em;
+            box-shadow: 0.15em 0.15em 0.15em 0.15em rgba(0, 0, 0, 0.25);
+          }
+        }
+      }
+    
+      
+      /**
+       * title
+       */
+       /* if inner text of title is empty, display 'title pending' */
+      .prod-nm {
+        display                   : block;
+        height                    : 3em;
+        overflow                  : hidden;
+        text-overflow             : ellipsis;
+        line-height               : 1em;
+        content                   : 'title pending';
+        border-bottom             : 2px inset rgb(28, 144, 208);
+        text-align:               : left;
+        vertical-align            : top;
+        padding-left              : 0.5em;
+      }
+    
+      .prod-atc {
+        * {
+          padding: 0.125em;
+          height: 100%;
+          vertical-align: middle;
+        }
+      }
+    }
+    
+    /**
+     * product description
+     */
+    #pems2description-2024-08-07 {
+      table {
+    
+        border-collapse : collapse;
+        min-width: 33dvw;
+        min-width: 33dvw;
+        max-width: 50dvw;
+        max-width: 50dvw;
+        margin: 0 0 0.25em 0;
+    
+        tbody {
+    
+          /* I want to make `tr > th ~ td` to look like a drawer coming out of the `tr > th` as the cabinet. */
+          position: relative;
+    
+          tr {
+            padding: 1em;
+    
+            th {
+              background-color: rgb(29, 46, 92);
+              color: rgb(255, 255, 255);
+              font-variant : small-caps;
+              text-align: left;
+              width: 15em;
+    
+              min-height: 1em;
+              height: 3em;
+              max-height: 3em;
+    
+            }
+    
+            td {
+              background-color: rgb(0, 134, 200);
+              color: rgb(255, 255, 255);
+              text-align: right;
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+      
+    .summary
+    {
+      /* layout */
+      height           : 3em                    ;
+      padding-left     : 1em                    ;
+      padding          : 0.5em                  ;
+      margin-bottom    : 0.5em                  ;
+      height           : 3.0em                  ;
+      
+      /* content */
+      overflow         : hidden                 ;
+      text-overflow    : ellipsis               ;
+      line-height      : 1em                    ;
+    
+      /* border */
+      border-width    : 0.25em 0.125em 0.25em 0.125em;
+      border-color    : rgba(255,255,255,1.0);
+    }
+      
+    
+      td
+    , th
+    {
+      border: 1px solid white;
+      padding: 0 1em 0 1em;
+      margin-bottom: 0.125em;
+      border: 1px solid white;
+    }
+    </style>
